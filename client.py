@@ -7,8 +7,7 @@ except ImportError:
 
 import cv2, requests
 
-SERVIDOR = "COLE_AQUI_A_URL_DO_RENDER"
-
+SERVIDOR = https://painel-o9ls.onrender.com/
 RAPIDO = 0.15     # quando voce esta olhando
 DEVAGAR = 10.0    # quando ninguem esta olhando
 LARGURA = 640
